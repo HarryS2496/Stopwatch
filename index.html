@@ -2,10 +2,19 @@
 <html>
   <head>
     <title>Stopwatch</title>
-    <link rel="stylesheet" href="stopwatch.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stopwatch.css" />
   </head>
   <body>
-    
+    <div class="container">
+      <h1>STOPWATCH</h1>
+      <div id="stopwatch">00:00:00:00</div>
+      <div id="notes">
+        <p><strong>Hours : Minutes : Seconds : Miliseconds</strong></p>
+      </div>
+      <button id="startStopButton" onclick="toggleTimer()">Start</button>
+    </div>
+    <script src="stopwatch.js"></script>
   </body>
-  <script src="stopwatch.js"></script>
 </html>
