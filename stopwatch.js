@@ -58,7 +58,7 @@ function resetTimer() {
     clearInterval(timerInterval);
     isRunning = false;
     elapsedTime = 0;
-    totalElapsedTime = 0;t
+    totalElapsedTime = 0;
     stopwatchDisplay.textContent = "00:00:00.000";
     totalTimeDisplay.textContent = "Total Time: 00:00:00.000";
     startStopButton.textContent = "Start";
