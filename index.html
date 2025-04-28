@@ -4,16 +4,23 @@
     <title>Stopwatch</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="stopwatch.css" />
   </head>
   <body>
     <div class="container">
       <h1>STOPWATCH</h1>
-      <div id="stopwatch">00:00:00:00</div>
+      <div id="stopwatch">00:00:00.000</div>
       <div id="notes">
-        <p><strong>Hours : Minutes : Seconds : Miliseconds</strong></p>
+        <p><strong>Hours : Minutes : Seconds . Milliseconds</strong></p>
       </div>
       <button id="startStopButton" onclick="toggleTimer()">Start</button>
+      <button id="resetButton" onclick="resetTimer()">Reset</button>
     </div>
     <script src="stopwatch.js"></script>
   </body>

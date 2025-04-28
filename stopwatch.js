@@ -6,6 +6,7 @@ let timerInterval;
 
 const stopwatchDisplay = document.getElementById("stopwatch");
 const startStopButton = document.getElementById("startStopButton");
+const resetButton = document.getElementById("resetButton");
 
 // Starts and stops timer
 function toggleTimer() {
@@ -25,6 +26,17 @@ function toggleTimer() {
     isRunning = !isRunning;
 }
 
+// Resets timer
+function resetTimer() {
+    clearInterval(timerInterval);
+    isRunning = false;
+    elapsedTime = 0;
+    stopwatchDisplay.textContent = "00:00:00.000"
+    startStopButton.textContent = "Start";
+    startStopButton.classList.remove("stop-btn");
+}
+
+// Displays the elapsed time
 function updateTime() {
     updatedTime = Date.now();
     elapsedTime = updatedTime - startTime;
@@ -34,9 +46,15 @@ function updateTime() {
     const seconds = Math.floor((elapsedTime / 1000) % 60);
     const milliseconds = Math.floor((elapsedTime % 1000) / 10);
 
-    stopwatchDisplay.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}:${formatTime(milliseconds)}`;
+    stopwatchDisplay.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}.${formatMilliseconds(milliseconds)}`;
 }
 
+// Makes sure all units of time come in double digits
 function formatTime(time) {
     return time < 10 ? `0${time}` : time;
+}
+
+// Except milliseconds, those come in triple digits
+function formatMilliseconds(time) {
+    return time < 10 ? `00${time}` : time < 100 ? `0${time}` : time;
 }
