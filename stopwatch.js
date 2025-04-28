@@ -35,7 +35,6 @@ function toggleTimer() {
 function recordLap() {
     if (!isRunning) return;
 
-    
     const lapTime = stopwatchDisplay.textContent; // Get current stopwatch time
     const lapMilliseconds = elapsedTime; // Get lap time in milliseconds
     totalElapsedTime += lapMilliseconds; // Add lap time to total time
