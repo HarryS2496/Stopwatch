@@ -58,7 +58,7 @@ h1 {
   margin: 20px;
 }
 
-#laps {
+#laps, #totalTime {
   font-family: "Oxanium", sans-serif;
   font-size: 1.5em;
   margin: 20px;
