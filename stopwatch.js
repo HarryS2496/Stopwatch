@@ -7,6 +7,8 @@ let timerInterval;
 const stopwatchDisplay = document.getElementById("stopwatch");
 const startStopButton = document.getElementById("startStopButton");
 const resetButton = document.getElementById("resetButton");
+const lapButton = document.getElementById("lapButton");
+const lapsContainer = document.getElementById("laps");
 
 // Starts and stops timer
 function toggleTimer() {
@@ -15,15 +17,27 @@ function toggleTimer() {
         clearInterval(timerInterval);
         startStopButton.textContent = "Start";
         startStopButton.classList.remove("stop-btn");
-        
+        startStopButton.classList.add("start-btn");
     } else {
         // Start the timer
         startTime = Date.now() - elapsedTime;
         timerInterval = setInterval(updateTime, 10); // Update every 10ms for milliseconds
         startStopButton.textContent = "Stop";
+        startStopButton.classList.remove("start-btn");
         startStopButton.classList.add("stop-btn");
+        
     }
     isRunning = !isRunning;
+}
+
+// Bookmarks times and lists them as laps
+function recordLap() {
+    if (!isRunning) return;
+
+    const lapTime = stopwatchDisplay.textContent;
+    const lapElement = document.createElement("div");
+    lapElement.textContent = `LAP ${lapsContainer.children.length + 1} : ${lapTime}`;
+    lapsContainer.appendChild(lapElement);
 }
 
 // Resets timer
@@ -34,6 +48,7 @@ function resetTimer() {
     stopwatchDisplay.textContent = "00:00:00.000"
     startStopButton.textContent = "Start";
     startStopButton.classList.remove("stop-btn");
+    lapsContainer.textContent = "";
 }
 
 // Displays the elapsed time
